@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: veritas-ml-engine
+    runtime: python
+    plan: free
+    rootDir: ml_engine
+    buildCommand: pip install -r requirements.txt
+    startCommand: python api.py
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.10
+
+  - type: web
+    name: veritas-server
+    runtime: node
+    plan: free
+    rootDir: server
+    buildCommand: npm ci
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: ML_ENGINE_URL
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+
+  - type: static
+    name: veritas-frontend
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_BASE_URL
+        sync: false
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

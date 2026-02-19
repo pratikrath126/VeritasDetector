@@ -1,0 +1,25 @@
+# Dataset (too large for git)
+dataset/
+# Trained model
+ml_engine/model.pth
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+*.egg-info/
+# Node
+node_modules/
+# Build
+dist/
+build/
+# Local artifacts
+downloads/
+tmp/
+output/
+# Mac
+.DS_Store
+# Logs
+*.log
+npm-debug.log*
