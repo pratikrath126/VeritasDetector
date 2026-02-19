@@ -8,7 +8,7 @@ VERITAS is a production-ready full-stack web app that classifies uploaded face i
 - ML Engine: Python + FastAPI (`localhost:8000`)
 - Model: EfficientNet-B0 (timm, fine-tuned)
 
-## DATASET DOWNLOAD INSTRUCTIONS
+
 
 DATASET DOWNLOAD INSTRUCTIONS
 ==============================
