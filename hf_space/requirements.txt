@@ -1,5 +1,5 @@
-torch==2.1.0
-torchvision==0.16.0
+torch==2.5.1
+torchvision==0.20.1
 gradio==4.44.1
 Pillow==10.1.0
 timm==0.9.12
